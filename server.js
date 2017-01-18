@@ -34,9 +34,7 @@ app.post('/songs', function(req, res) {
   var date = Date();
   req.body['dateAdded'] = date;
 
-  if (typeof req.body.title != string||typeof req.body.artist  != string||typeof req.body.album != string) {
-    res.sendStatus(400);
-  } else if (req.body.title.trim() == "" ||req.body.artist.trim() == "" ||req.body.album.trim() == "") {
+  if (req.body.title.trim() == "" ||req.body.artist.trim() == "" ||req.body.album.trim() == "") {
     res.sendStatus(400);
   } else if (titleArr.includes(req.body.title)) {
     res.sendStatus(400);
