@@ -28,7 +28,8 @@ function addSong(event) {
     url: '/songs',
     type: 'POST',
     data: songData,
-    success: getSongs
+    success: getSongs,
+    error: errorMessage
   });
 }
 
@@ -40,4 +41,8 @@ function displaySongs(songs) {
   songs.forEach(function(song) {
     $('#songs').append('<li>' + song.title + ' by ' + song.artist + ' from album ' + song.album + ' date added '  + song.dateAdded +'</li>');
   });
+}
+
+function errorMessage() {
+  alert('Error, not a valid input.');
 }
